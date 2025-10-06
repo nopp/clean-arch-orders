@@ -1,0 +1,11 @@
+
+bin/
+dist/
+build/
+vendor/
+*.log
+*.sqlite
+*.db
+.tmp/
+.env
+**/.DS_Store

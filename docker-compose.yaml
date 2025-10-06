@@ -1,0 +1,40 @@
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: ordersdb
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d ordersdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_USER: app
+      DB_PASS: app
+      DB_NAME: ordersdb
+      DB_SSLMODE: disable
+      REST_PORT: "8080"
+      GRAPHQL_PORT: "8081"
+      GRPC_PORT: "50051"
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "50051:50051"
+
+volumes:
+  pgdata:

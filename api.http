@@ -1,0 +1,26 @@
+
+// Criação de order padrao usando extension (rest client)
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "id": "ord-001",
+  "customer_name": "Carlos Malucelli",
+  "total_amount": 199.90
+}
+
+###
+// Listagem das orders
+GET http://localhost:8080/order
+
+###
+// Usando GET no GraphQL
+GET http://localhost:8081/?query={listOrders{ id customer_name total_amount created_at }}
+
+// Usando POST no GraphQL
+POST http://localhost:8081/
+Content-Type: application/json
+
+{
+  "query": "{ listOrders { id customer_name total_amount created_at } }"
+}

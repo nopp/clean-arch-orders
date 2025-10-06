@@ -1,0 +1,22 @@
+
+syntax = "proto3";
+
+package orderpb;
+option go_package = "github.com/nopp/clean-arch-orders/internal/adapter/grpc/pb;pb";
+
+message Empty {}
+
+message Order {
+  string id = 1;
+  string customer_name = 2;
+  double total_amount = 3;
+  string created_at = 4;
+}
+
+message ListOrdersResponse {
+  repeated Order orders = 1;
+}
+
+service OrderService {
+  rpc ListOrders(Empty) returns (ListOrdersResponse);
+}

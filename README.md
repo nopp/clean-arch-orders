@@ -1,10 +1,6 @@
 
 # Desafio — Listagem de Orders (Clean Architecture)
 
-Projeto em Go com **REST**, **gRPC** e **GraphQL** para **listar orders**.
-
-As migrações rodam automaticamente e criam a tabela `orders`.
-
 ## Endpoints
 
 ### REST

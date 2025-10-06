@@ -7,8 +7,6 @@
 - `POST /order` — cria uma order
 - `GET /order` — lista as orders
 
-Exemplos no arquivo `api.http`.
-
 ### GraphQL
 - `POST /` com `{ "query": "{ listOrders { id customer_name total_amount created_at } }" }`
 - Ou `GET /?query=...`

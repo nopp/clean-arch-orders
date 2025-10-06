@@ -35,7 +35,6 @@ func (s *Server) Handler() http.Handler {
 				Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 					res, err := s.ListUC.Execute()
 					if err != nil { return nil, err }
-					// type assert for encoder friendliness
 					orders := res.([]domain.Order)
 					return orders, nil
 				},

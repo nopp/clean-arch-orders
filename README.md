@@ -1,6 +1,15 @@
 
 # Desafio Clean Architecture fullcycle (GoExpert)
 
+### Resumo dos diretórios
+```
+domain: entidades e regras de negócio
+repository: interfaces
+usecase: lógica de aplicação
+adapter: HTTP, gRPC, GraphQL
+infra: DB, config, migrações
+```
+
 ## Endpoints
 
 ### REST
